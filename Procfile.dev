@@ -1,0 +1,2 @@
+web: npm run dev-server
+assets: npm run dev-assets
