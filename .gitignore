@@ -5,3 +5,4 @@ Dockerfile
 docker-compose.yml
 .DS_Store
 webpack-assets.json
+npm-debug.log

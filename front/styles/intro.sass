@@ -1,0 +1,40 @@
+@keyframes intro
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+.intro
+  align-items: center
+  animation: intro 1200ms ease 800ms 1 normal forwards
+  bottom: 0
+  display: flex
+  flex-direction: column
+  justify-content: center
+  left: 0
+  opacity: 0
+  position: fixed
+  right: 0
+  top: 0
+
+.intro-title
+  color: #e6e62b
+  font-size: 30px
+  font-weight: bold
+  margin: 0 0 20px 0
+
+.intro-link
+  background-image: url('../images/github_logo_white.svg')
+  background-repeat: no-repeat
+  background-size: auto 30px
+  color: white
+  display: block
+  font-size: 16px
+  height: 30px
+  line-height: 30px
+  padding: 0 0 0 40px
+  text-decoration: none
+  transition: opacity 300ms
+
+  &:hover
+    opacity: .7
