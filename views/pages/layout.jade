@@ -1,0 +1,10 @@
+doctype html
+html(lang='en')
+  head
+    title JS Pad
+    link(rel='stylesheet' media='all' href=webpackCssEntry('application'))
+
+  body
+    include ./flash.jade
+    block content
+    script(type='text/javascript' src=webpackJsEntry('application'))
