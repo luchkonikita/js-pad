@@ -2,9 +2,9 @@ doctype html
 html(lang='en')
   head
     title JS Pad
-    link(rel='stylesheet' media='all' href=webpackCssEntry('application'))
+    != webpackCssTag('application')
 
   body
     include ./_flash.jade
     block content
-    script(type='text/javascript' src=webpackJsEntry('application'))
+    != webpackJsTag('application')

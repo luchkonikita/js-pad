@@ -14,10 +14,16 @@ if (isProduction) {
 }
 
 module.exports = {
-  webpackJsEntry: (filename) => {
-    return isProduction ? assets[filename]['js'] : `http://localhost:8080/public/${filename}.js`
+  webpackJsTag: (filename) => {
+    if (isProduction) {
+      return `<script type="text/javascript" src="${assets[filename]['js']}"></script>`
+    } else {
+      return `<script type="text/javascript" src="http://localhost:8080/public/${filename}.js"></script>`
+    }
   },
-  webpackCssEntry: (filename) => {
-    return isProduction ? assets[filename]['css'] : `http://localhost:8080/public/${filename}.css`
+  webpackCssTag: (filename) => {
+    if (isProduction) {
+      return `<link rel="stylesheet" media="all" href="${assets[filename]['css']}">`
+    }
   }
 }
