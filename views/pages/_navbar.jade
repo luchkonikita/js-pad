@@ -1,0 +1,9 @@
+nav.navbar
+  span.navbar-user
+    span.navbar-user_name
+      = user.githubLogin
+      br
+      form(method='POST' action='/logout?_method=DELETE')
+        button.navbar-user_logout_link(type='submit') logout
+
+    img.navbar-user_avatar(src=user.githubAvatarUrl alt=user.githubLogin)

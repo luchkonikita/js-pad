@@ -26,6 +26,7 @@
     "express-session": "^1.12.1",
     "extract-text-webpack-plugin": "^0.9.1",
     "jade": "^1.11.0",
+    "method-override": "^2.3.5",
     "node-sass": "^3.4.2",
     "passport": "^0.3.2",
     "passport-github2": "^0.1.9",

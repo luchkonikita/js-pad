@@ -1,0 +1,32 @@
+.navbar
+  background-color: darken($background-color, 3%)
+  color: $text-color
+  height: 60px
+
+.navbar-user
+  display: flex
+  justify-content: flex-end
+
+.navbar-user_name
+  height: 60px
+  line-height: 15px
+  padding: 15px 0
+  text-align: right
+
+.navbar-user_avatar
+  border-radius: 50%
+  height: 40px
+  margin: 10px
+  width: 40px
+
+.navbar-user_logout_link
+  appearance: none
+  background-color: transparent
+  border: none
+  color: $text-color
+  cursor: pointer
+  padding: 0
+  transition: opacity 200ms
+
+  &:hover
+    opacity: .75
