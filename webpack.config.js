@@ -63,5 +63,6 @@ module.exports = {
       /node_modules\/sinon/,
     ]
   },
-  plugins: plugins
+  plugins: plugins,
+  noInfo: true
 }

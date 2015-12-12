@@ -6,7 +6,7 @@
   "scripts": {
     "prod-server": "NODE_ENV=production node index.js",
     "dev-server": "NODE_ENV=development node index.js",
-    "dev-assets": "NODE_ENV=development webpack-dev-server --inline --hot",
+    "dev-assets": "NODE_ENV=development webpack-dev-server --inline --hot --quiet",
     "postinstall": "rm -rf ./public && NODE_ENV=production webpack --progress --colors"
   },
   "engines": {
