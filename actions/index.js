@@ -45,5 +45,8 @@ module.exports = {
   },
   pad: (req, res) => {
     res.render('pages/pad', Object.assign({}, addFlash(req), addUser(req)))
+  },
+  padframe: (req, res) => {
+    res.render('pages/pad_frame')
   }
 }

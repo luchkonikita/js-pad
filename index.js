@@ -27,6 +27,7 @@ app.locals = helpers
 
 app.get('/', actions.home)
 app.get('/pad', actions.checkLogin, actions.pad)
+app.get('/padframe', actions.checkLogin, actions.padframe)
 app.get('/auth/github', actions.auth)
 app.get('/auth/github/callback', actions.authCallback)
 app.delete('/logout', actions.logout)

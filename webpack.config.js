@@ -51,6 +51,9 @@ module.exports = {
         loader: styleLoader('style!css!autoprefixer!sass-loader?indentedSyntax')
       },
       {
+        test: /\.css$/, loader: 'style!css'
+      },
+      {
         test: /\.(ttf)$/,
         loader: 'url-loader?limit=100000&name=./public/fonts/[hash].[ext]'
       },
