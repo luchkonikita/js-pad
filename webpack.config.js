@@ -25,7 +25,7 @@ function styleLoader(loader) {
 
 module.exports = {
   entry: {
-    application: './front/index.js'
+    application: './front/index'
   },
   output: {
     path: path.resolve(__dirname, './public/'),
@@ -39,11 +39,11 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules)/,
         loader: 'babel',
         query: {
-          presets: ['es2015']
+          presets: ['es2015', 'react']
         }
       },
       {
