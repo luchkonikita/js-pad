@@ -1,0 +1,42 @@
+@import '../../styles/defaults.sass'
+
+@keyframes notification
+  0%
+    opacity: 0
+    transform: translateY(200%)
+  15%
+    opacity: 1
+    transform: translateY(0)
+  85%
+    opacity: 1
+    transform: translateY(0)
+  100%
+    opacity: 0
+    transform: translateY(200%)
+
+.notification
+  animation: notification 4s ease 200ms 1 normal forwards
+  border-radius: 5px
+  bottom: 30px
+  box-shadow: 0 1px 6px rgba(black, .25)
+  color: white
+  opacity: 0
+  padding: 20px
+  position: absolute
+  right: 30px
+  text-align: center
+  transform: translateY(200%)
+  width: 400px
+  z-index: 10
+
+  &.is-success
+    background-color: rgba($green-color, .9)
+    border: 1px solid $green-color
+
+  &.is-notice
+    background-color: rgba($blue-color, .9)
+    border: 1px solid $blue-color
+
+  &.is-error
+    background-color: rgba($red-color, .9)
+    border: 1px solid $red-color

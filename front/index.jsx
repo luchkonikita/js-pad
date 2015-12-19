@@ -9,12 +9,28 @@ import {Provider} from 'react-redux'
 
 import App from './components/app'
 import reducers from './reducers/index'
+import {firebaseRef} from './firebase/index'
+
+function prepareUserData(authData) {
+  if (authData) {
+    return {
+      isLoggedIn: true,
+      name: authData.github.username,
+      avatarUrl: authData.github.profileImageURL
+    }
+  } else {
+    return {
+      isLoggedIn: false
+    }
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('app initialization started')
 
+  const user = prepareUserData(firebaseRef.getAuth())
   const loggerMiddleware = createLogger()
-  const store = applyMiddleware(thunkMiddleware, loggerMiddleware)(createStore)(reducers)
+  const store = applyMiddleware(thunkMiddleware, loggerMiddleware)(createStore)(reducers, {user})
 
   ReactDOM.render(
     <Provider store={store}>

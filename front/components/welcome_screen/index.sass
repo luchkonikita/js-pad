@@ -1,12 +1,14 @@
-@keyframes intro
+@import '../../styles/defaults.sass'
+
+@keyframes welcome_screen
   0%
     opacity: 0
   100%
     opacity: 1
 
-.intro
+.welcome_screen
   align-items: center
-  animation: intro 1200ms ease 800ms 1 normal forwards
+  animation: welcome_screen 1200ms ease 800ms 1 normal forwards
   bottom: 0
   display: flex
   flex-direction: column
@@ -17,16 +19,16 @@
   right: 0
   top: 0
 
-.intro-title
+.welcome_screen-title
   color: $yellow-color
   font-size: 34px
   font-weight: bold
-  line-height: 70px
+  line-height: 40px
   margin: 0 0 20px 0
   text-decoration: none
 
-.intro-link
-  background-image: url('../images/github_logo_white.svg')
+.welcome_screen-link
+  background-image: url('images/github_logo_white.svg')
   background-repeat: no-repeat
   background-size: auto 30px
   color: white

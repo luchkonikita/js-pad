@@ -34,7 +34,10 @@ module.exports = {
     chunkFilename: isDevelopment ? '[id].js' : '[id]-[chunkhash].js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      images: (path.resolve(__dirname) + '/front/images')
+    }
   },
   module: {
     loaders: [
