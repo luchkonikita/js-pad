@@ -20,3 +20,50 @@
 
 .editor-textarea
   display: none
+
+.editor-help
+  background-color: white
+  border-radius: 50%
+  bottom: 30px
+  height: 30px
+  position: absolute
+  right: 30px
+  width: 30px
+
+.editor-help_question_mark
+  color: $background-color
+  cursor: pointer
+  font-weight: bold
+  line-height: 30px
+  text-align: center
+
+.editor-help_tooltip
+  background-color: $blue-color
+  border-radius: 5px
+  color: white
+  font-size: 14px
+  line-height: 30px
+  min-width: 500px
+  opacity: 0
+  padding: 30px
+  transform: translateY(300%)
+
+  .editor-help:hover &
+    bottom: 0
+    opacity: 1
+    position: absolute
+    right: 0
+    transform: translateY(0)
+    transition: all 400ms ease
+
+  code
+    background-color: darken($blue-color, 3%)
+    border-radius: 2px
+    border: 1px solid darken($blue-color, 6%)
+    color: darken(white, 1%)
+    display: inline-block
+    font-family: monospace
+    line-height: 18px
+    margin: 0 2px
+    padding: 2px 4px
+    white-space: nowrap

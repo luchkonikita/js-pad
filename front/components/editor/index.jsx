@@ -50,6 +50,18 @@ export default class Editor extends React.Component {
         <section className='editor-workarea'>
           <textarea className='editor-textarea' ref='textarea'></textarea>
         </section>
+        <div className='editor-help'>
+          <div className='editor-help_question_mark'>?</div>
+          <div className='editor-help_tooltip'>
+            To make tests work you can use:
+            <br />
+            <code>assert(condition, message)</code>
+            <br />
+            Example:
+            <br />
+            <code>assert((getOne() === 1), 'function getOne returns 1')</code>
+          </div>
+        </div>
       </div>
     )
   }
