@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import Notification from '../notification/index'
 import Navbar from '../navbar/index'
 import WelcomeScreen from '../welcome_screen/index'
+import Editor from '../editor/index'
 import {initLogin, initLogout, hideNotification} from '../../actions/index'
 
 class App extends React.Component {
@@ -40,12 +41,21 @@ class App extends React.Component {
     }
   }
 
+  _renderEditor() {
+    if (this.props.user.isLoggedIn) {
+      return (
+        <Editor />
+      )
+    }
+  }
+
   render() {
     return (
       <div className='app'>
         {this._renderNotification()}
-        {this._renderNavbar()}
         {this._renderWelcomeScreen()}
+        {this._renderNavbar()}
+        {this._renderEditor()}
       </div>
     )
   }

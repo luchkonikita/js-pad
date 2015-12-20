@@ -1,0 +1,21 @@
+@import '../../styles/defaults.sass'
+
+.editor
+  bottom: 0
+  display: flex
+  left: 0
+  position: absolute
+  right: 0
+  top: $navbar-height
+
+.editor-taskarea
+  background-color: lighten($background-color, 2%)
+  flex-basis: 400px
+
+.editor-workarea
+  border-left: darken($background-color, 2%)
+  flex-grow: 1
+  padding: 15px 5px
+
+.editor-textarea
+  display: none

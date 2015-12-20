@@ -10,9 +10,10 @@ export function initLogin() {
           text: 'Can not authenticate user'
         }))
       } else {
+        const id = authData.uid
         const provider = authData.provider
         const name = authData.github.username
-        firebaseRef.child('users').child(authData.uid).set({provider, name}, (error) => {
+        firebaseRef.child('users').child(authData.uid).set({id, provider, name}, (error) => {
           if (error) {
             dispatch(showNotification({
               type: 'error',
