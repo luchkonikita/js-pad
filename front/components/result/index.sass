@@ -1,0 +1,16 @@
+@import '../../styles/defaults.sass'
+
+.result
+  border-radius: 5px
+  color: darken(white, 1%)
+  line-height: 26px
+  margin-bottom: 20px
+  padding: 20px
+
+  &.is-success
+    background-color: rgba($green-color, .9)
+    border: 1px solid darken($green-color, 1%)
+
+  &.is-error
+    background-color: rgba($red-color, .9)
+    border: 1px solid darken($red-color, 1%)

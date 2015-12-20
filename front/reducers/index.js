@@ -29,4 +29,15 @@ function notification(state = {}, action) {
   }
 }
 
-export default combineReducers({user, notification})
+function results(state = [], action) {
+  switch (action.type) {
+    case actionTypes.SHOW_RESULTS:
+      return state.concat(action.result)
+    case actionTypes.RESET_RESULTS:
+      return []
+    default:
+      return state
+  }
+}
+
+export default combineReducers({user, notification, results})

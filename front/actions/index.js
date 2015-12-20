@@ -1,5 +1,6 @@
 import actionTypes from '../action_types/index'
 import {firebaseRef} from '../firebase/index'
+import Runner from '../runner/index'
 
 export function initLogin() {
   return function(dispatch, getState) {
@@ -66,5 +67,27 @@ export function showNotification(notification) {
 export function hideNotification() {
   return {
     type: actionTypes.HIDE_NOTIFICATION
+  }
+}
+
+export function runCode(code) {
+  return function(dispatch, getState) {
+    dispatch(resetResults())
+    new Runner(code)
+      .onValue(r => dispatch(showResult(r)))
+      .run()
+  }
+}
+
+export function showResult(result) {
+  return {
+    type: actionTypes.SHOW_RESULTS,
+    result
+  }
+}
+
+export function resetResults() {
+  return {
+    type: actionTypes.RESET_RESULTS
   }
 }

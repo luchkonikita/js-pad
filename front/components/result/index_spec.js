@@ -4,17 +4,20 @@ import React from 'react'
 import {findDOMNode} from 'react-dom'
 import TestUtils from 'react-addons-test-utils'
 
-import Editor from './index.jsx'
+import Result from './index.jsx'
 
 const defaultProps = {
-  results: []
+  result: {
+    type: 'success',
+    message: 'Yay'
+  }
 }
 
 function renderToDOM(props = defaultProps) {
-  return TestUtils.renderIntoDocument(<Editor {...props} />)
+  return TestUtils.renderIntoDocument(<Result {...props} />)
 }
 
-describe('Editor', () => {
+describe('Result', () => {
   it('renders to DOM', () => {
     assert.ok(renderToDOM())
   })
