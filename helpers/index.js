@@ -18,7 +18,7 @@ module.exports = {
     if (isProduction) {
       return `<script type="text/javascript" src="${assets[filename]['js']}"></script>`
     } else {
-      return `<script type="text/javascript" src="http://localhost:8080/public/${filename}.js"></script>`
+      return `<script type="text/javascript" src="http://localhost:8080/public/assets/${filename}.js"></script>`
     }
   },
   webpackCssTag: (filename) => {

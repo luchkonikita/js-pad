@@ -28,8 +28,8 @@ module.exports = {
     application: './front/index'
   },
   output: {
-    path: path.resolve(__dirname, './public/'),
-    publicPath: isDevelopment ? 'http://localhost:8080/public/' : '/public/',
+    path: path.resolve(__dirname, './public/assets'),
+    publicPath: isDevelopment ? 'http://localhost:8080/public/assets' : '/public/assets/',
     filename: isDevelopment ? '[name].js' : '[name]-[hash].js',
     chunkFilename: isDevelopment ? '[id].js' : '[id]-[chunkhash].js'
   },
