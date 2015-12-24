@@ -26,11 +26,12 @@ function prepareUserData(authData) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('app initialization started')
-
   const user = prepareUserData(firebaseRef.getAuth())
-  const loggerMiddleware = createLogger()
-  const store = applyMiddleware(thunkMiddleware, loggerMiddleware)(createStore)(reducers, {user})
+  const middlewares = [thunkMiddleware]
+  if (IS_DEVELOPMENT) {
+    middlewares.push(createLogger())
+  }
+  const store = applyMiddleware(...middlewares)(createStore)(reducers, {user})
 
   ReactDOM.render(
     <Provider store={store}>

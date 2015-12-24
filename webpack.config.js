@@ -6,7 +6,9 @@ const AssetsWebpackPlugin = require('assets-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path')
 
-const plugins = []
+const plugins = [
+  new webpack.DefinePlugin({IS_DEVELOPMENT: isDevelopment})
+]
 
 if (isProduction) {
   plugins.push(new AssetsWebpackPlugin())
