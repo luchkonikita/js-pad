@@ -32,24 +32,19 @@ class App extends React.Component {
     }
   }
 
-  _renderNavbar() {
+  _renderWorkarea() {
     if (this.props.user.isLoggedIn) {
       return (
-        <Navbar
-          user={this.props.user}
-          onLogoutClick={() => { this.props.dispatch(initLogout()) }}
-        />
-      )
-    }
-  }
-
-  _renderEditor() {
-    if (this.props.user.isLoggedIn) {
-      return (
-        <Editor
-          results={this.props.results}
-          onEditorChange={(code) => { this.props.dispatch(runCode(code)) }}
-        />
+        <div className='app-workarea'>
+          <Navbar
+            user={this.props.user}
+            onLogoutClick={() => { this.props.dispatch(initLogout()) }}
+          />
+          <Editor
+            results={this.props.results}
+            onEditorChange={(code) => { this.props.dispatch(runCode(code)) }}
+          />
+        </div>
       )
     }
   }
@@ -59,8 +54,7 @@ class App extends React.Component {
       <div className='app'>
         {this._renderNotification()}
         {this._renderWelcomeScreen()}
-        {this._renderNavbar()}
-        {this._renderEditor()}
+        {this._renderWorkarea()}
       </div>
     )
   }

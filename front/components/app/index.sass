@@ -1,5 +1,11 @@
 @import '../../styles/defaults.sass'
 
+@keyframes app-workarea
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
 .app
   bottom: 0
   left: 0
@@ -7,3 +13,7 @@
   position: absolute
   right: 0
   top: 0
+
+.app-workarea
+  animation: app-workarea 1200ms ease 400ms 1 normal forwards
+  opacity: 0
