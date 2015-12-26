@@ -2,7 +2,7 @@ import actionTypes from '../action_types/index'
 import {firebaseRef} from '../firebase/index'
 import Runner from '../runner/index'
 
-export function initLogin() {
+function initLogin() {
   return function(dispatch, getState) {
     firebaseRef.authWithOAuthPopup('github', (error, authData) => {
       if (error) {
@@ -33,7 +33,7 @@ export function initLogin() {
   }
 }
 
-export function initLogout() {
+function initLogout() {
   return function(dispatch, getState) {
     firebaseRef.unauth()
     dispatch(showNotification({
@@ -44,33 +44,33 @@ export function initLogout() {
   }
 }
 
-export function succeedLogin(authData) {
+function succeedLogin(authData) {
   return {
     type: actionTypes.SUCCEED_LOGIN,
     authData
   }
 }
 
-export function succeedLogout() {
+function succeedLogout() {
   return {
     type: actionTypes.SUCCEED_LOGOUT
   }
 }
 
-export function showNotification(notification) {
+function showNotification(notification) {
   return {
     type: actionTypes.SHOW_NOTIFICATION,
     notification
   }
 }
 
-export function hideNotification() {
+function hideNotification() {
   return {
     type: actionTypes.HIDE_NOTIFICATION
   }
 }
 
-export function runCode(code) {
+function runCode(code) {
   return function(dispatch, getState) {
     dispatch(resetResults())
     new Runner(code)
@@ -79,15 +79,42 @@ export function runCode(code) {
   }
 }
 
-export function showResult(result) {
+function showResult(result) {
   return {
     type: actionTypes.SHOW_RESULTS,
     result
   }
 }
 
-export function resetResults() {
+function resetResults() {
   return {
     type: actionTypes.RESET_RESULTS
   }
+}
+
+function showTasks() {
+  return {
+    type: actionTypes.SHOW_TASKS
+  }
+}
+
+function selectTask(task) {
+  return {
+    type: actionTypes.SELECT_TASK,
+    task
+  }
+}
+
+export default {
+  initLogin,
+  initLogout,
+  succeedLogin,
+  succeedLogout,
+  showNotification,
+  hideNotification,
+  runCode,
+  showResult,
+  resetResults,
+  showTasks,
+  selectTask
 }

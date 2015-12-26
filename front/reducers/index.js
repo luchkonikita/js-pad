@@ -1,5 +1,20 @@
+import _ from 'underscore'
+
 import {combineReducers} from 'redux'
 import actionTypes from '../action_types/index'
+
+const defaults = {
+  tasks: {
+    show: false,
+    list: [
+      {
+        id: 1,
+        name: 'First task',
+        description: 'FIrst task description text...'
+      }
+    ]
+  }
+}
 
 function user(state = {}, action) {
   switch (action.type) {
@@ -40,4 +55,15 @@ function results(state = [], action) {
   }
 }
 
-export default combineReducers({user, notification, results})
+function tasks(state = defaults.tasks, action) {
+  switch (action.type) {
+    case actionTypes.SHOW_TASKS:
+      return Object.assign({}, state, {show: true})
+    case actionTypes.SELECT_TASK:
+      return Object.assign({}, state, {show: false, selectedTask: action.task})
+    default:
+      return state
+  }
+}
+
+export default combineReducers({user, notification, results, tasks})

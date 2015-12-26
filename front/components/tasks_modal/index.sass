@@ -1,0 +1,73 @@
+@import '../../styles/defaults.sass'
+
+@keyframes tasks_modal
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes tasks_modal-inner
+  0%
+    transform: translateY(2000px)
+  100%
+    transform: translateY(0)
+
+.tasks_modal
+  animation: tasks_modal 200ms ease 0ms 1 normal forwards
+  background-color: rgba(lighten($background-color, 3%), .95)
+  bottom: 0
+  left: 0
+  opacity: 0
+  overflow: scroll
+  position: fixed
+  right: 0
+  top: 0
+  z-index: 100
+
+.tasks_modal-inner
+  animation: tasks_modal-inner 300ms ease 200ms 1 normal forwards
+  background-color: $background-color
+  border-radius: 5px
+  border: 1px solid darken($background-color, 3%)
+  box-shadow: 0 0 20px rgba(black, 0.1)
+  margin: 40px auto
+  padding: 20px
+  transform: translateY(2000px)
+  width: 600px
+
+.tasks_modal-task
+  border-radius: 5px
+  border: 1px solid transparent
+  color: rgba($text-color, .9)
+  cursor: pointer
+  line-height: 20px
+  margin-bottom: 15px
+  padding: 10px
+  transition: all 200ms
+
+  &:hover
+    background-color: darken($background-color, 2%)
+    border-color: rgba($text-color, .2)
+    color: $text-color
+
+  &:last-child
+    margin: 0
+
+.tasks_modal-task_name
+  font-size: 18px
+  margin-bottom: 5px
+
+.tasks_modal-task_description
+  font-size: 14px
+
+.tasks_modal-close_link
+  color: $text-color
+  display: block
+  font-size: 30px
+  position: fixed
+  right: 18px
+  top: 15px
+  transition: all 400ms
+
+  &:hover
+    color: $yellow-color

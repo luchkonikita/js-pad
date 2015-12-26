@@ -7,7 +7,8 @@ import Notification from '../notification/index'
 import Navbar from '../navbar/index'
 import WelcomeScreen from '../welcome_screen/index'
 import Editor from '../editor/index'
-import {initLogin, initLogout, hideNotification, runCode} from '../../actions/index'
+import TasksModal from '../tasks_modal/index'
+import actions from '../../actions/index'
 
 class App extends React.Component {
 
@@ -15,7 +16,7 @@ class App extends React.Component {
     if (!this.props.user.isLoggedIn) {
       return (
         <WelcomeScreen
-          onLoginClick={() => { this.props.dispatch(initLogin()) }}
+          onLoginClick={() => { this.props.dispatch(actions.initLogin()) }}
         />
       )
     }
@@ -26,7 +27,18 @@ class App extends React.Component {
       return (
         <Notification
           notification={this.props.notification}
-          onTimeout={() => { this.props.dispatch(hideNotification()) }}
+          onTimeout={() => { this.props.dispatch(actions.hideNotification()) }}
+        />
+      )
+    }
+  }
+
+  _renderTasksModal() {
+    if (this.props.user.isLoggedIn && this.props.tasks.show) {
+      return (
+        <TasksModal
+          tasks={this.props.tasks.list}
+          onTaskSelect={(task) => { this.props.dispatch(actions.selectTask(task)) }}
         />
       )
     }
@@ -38,11 +50,12 @@ class App extends React.Component {
         <div className='app-workarea'>
           <Navbar
             user={this.props.user}
-            onLogoutClick={() => { this.props.dispatch(initLogout()) }}
+            onSelectTaskClick={() => { this.props.dispatch(actions.showTasks()) }}
+            onLogoutClick={() => { this.props.dispatch(actions.initLogout()) }}
           />
           <Editor
             results={this.props.results}
-            onEditorChange={(code) => { this.props.dispatch(runCode(code)) }}
+            onEditorChange={(code) => { this.props.dispatch(actions.runCode(code)) }}
           />
         </div>
       )
@@ -54,6 +67,7 @@ class App extends React.Component {
       <div className='app'>
         {this._renderNotification()}
         {this._renderWelcomeScreen()}
+        {this._renderTasksModal()}
         {this._renderWorkarea()}
       </div>
     )

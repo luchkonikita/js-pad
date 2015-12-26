@@ -15,12 +15,40 @@
   padding: 0 20px
 
 .navbar-user
+  align-items: center
   display: flex
   justify-content: flex-end
 
+.navbar-tasks_link
+  border-radius: 5px
+  border: 1px solid $yellow-color
+  color: $yellow-color
+  display: inline-block
+  font-size: 13px
+  height: 30px
+  line-height: 28px
+  margin: 0 30px 0 0
+  padding: 0 15px 0 35px
+  position: relative
+  text-align: center
+  text-decoration: none
+  transition: all 200ms
+
+  .fa
+    display: block
+    font-size: 16px
+    left: 12px
+    position: absolute
+    top: 7px
+
+  &:hover
+    background-color: $yellow-color
+    border-color: $background-color
+    color: $background-color
+
 .navbar-user_name
-  max-height: $navbar-height
   line-height: 15px
+  max-height: $navbar-height
   padding: 15px 0
   text-align: right
 

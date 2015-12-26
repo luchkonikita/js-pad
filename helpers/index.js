@@ -6,7 +6,6 @@ var assets
 if (isProduction) {
   try {
     var data = fs.readFileSync(process.cwd() + '/webpack-assets.json')
-    console.log('Webpack assets loaded: ' + data)
     assets = JSON.parse(data)
   } catch (e) {
     console.warn(e)
