@@ -52,6 +52,10 @@ module.exports = {
         }
       },
       {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
+      {
         test: /\.sass$/,
         loader: styleLoader('style!css!autoprefixer!sass-loader?indentedSyntax')
       },

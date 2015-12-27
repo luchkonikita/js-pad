@@ -15,9 +15,7 @@ export default class TasksModal extends React.Component {
           <div className='tasks_modal-task_name'>
             {task.name}
           </div>
-          <div className='tasks_modal-task_description'>
-            {task.description}
-          </div>
+          <div className='tasks_modal-task_description' dangerouslySetInnerHTML={{__html: task.description}}></div>
         </div>
       )
     })

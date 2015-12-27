@@ -10,6 +10,7 @@ import {Provider} from 'react-redux'
 import App from './components/app'
 import reducers from './reducers/index'
 import {firebaseRef} from './firebase/index'
+import tasksJson from './data/tasks.json'
 
 function prepareUserData(authData) {
   if (authData) {
@@ -27,11 +28,12 @@ function prepareUserData(authData) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const user = prepareUserData(firebaseRef.getAuth())
+  const tasks = tasksJson
   const middlewares = [thunkMiddleware]
   if (IS_DEVELOPMENT) {
     middlewares.push(createLogger())
   }
-  const store = applyMiddleware(...middlewares)(createStore)(reducers, {user})
+  const store = applyMiddleware(...middlewares)(createStore)(reducers, {user, tasks})
 
   ReactDOM.render(
     <Provider store={store}>
